@@ -12,11 +12,17 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string",
-      "required": true,
-      "maxLength": 70,
-      "minLength": 1
+    "Product": {
+      "type": "string"
+    },
+    "Inventory": {
+      "type": "biginteger"
+    },
+    "Price": {
+      "type": "biginteger"
+    },
+    "Brand": {
+      "type": "string"
     }
   }
 }
