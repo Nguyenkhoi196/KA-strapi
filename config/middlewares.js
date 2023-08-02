@@ -4,10 +4,14 @@ module.exports = [
     name: 'strapi::security',
     config: {
       contentSecurityPolicy: {
+        useDefaults: true,
         directives: {
-          frameAncestors: ['http://localhost:*', 'self']
-        }
-      }
+          'connect-src': ["'self'", 'https:'],
+          'img-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com'],
+          'media-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com'],
+          upgradeInsecureRequests: null,
+        },
+      },
     },
   },
   'strapi::cors',

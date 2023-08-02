@@ -12,16 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Product": {
+    "product": {
       "type": "string"
     },
-    "Inventory": {
+    "inventory": {
       "type": "biginteger"
     },
-    "Price": {
+    "price": {
       "type": "biginteger"
     },
-    "Brand": {
+    "brand": {
       "type": "string"
     }
   }
