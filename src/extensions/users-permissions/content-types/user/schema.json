@@ -67,8 +67,14 @@
     },
     "UID": {
       "type": "uid",
-      "default": "user",
+      "default": "uid",
       "required": true
+    },
+    "warehouse": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product_warehouse.product",
+      "private": true
     }
   }
 }
