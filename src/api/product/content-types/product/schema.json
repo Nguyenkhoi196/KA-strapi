@@ -16,10 +16,10 @@
       "type": "string"
     },
     "inventory": {
-      "type": "biginteger"
+      "type": "integer"
     },
     "price": {
-      "type": "biginteger"
+      "type": "integer"
     },
     "brand": {
       "type": "string"
