@@ -4,7 +4,7 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "products",
+    "displayName": "product",
     "description": ""
   },
   "options": {
@@ -23,6 +23,12 @@
     },
     "brand": {
       "type": "string"
+    },
+    "suppliers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::supplier.supplier",
+      "mappedBy": "products"
     }
   }
 }

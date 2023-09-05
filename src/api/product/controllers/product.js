@@ -11,13 +11,15 @@ module.exports = createCoreController("api::product.product", ({ strapi }) => ({
 
   async find(ctx) {
     try {
-      const { results, pagination } = await strapi
-        .service("api::product.product")
-        .findWithTotalInventory();
-      const sanitizedEntity = await this.sanitizeOutput(results, ctx);
-      return this.transformResponse(sanitizedEntity, pagination);
+      ctx.query = { ...ctx.query }
+      const { data, meta } = await super.find(ctx)
+      const totalInventory = data.reduce((acc, current) => {
+        return acc + parseInt(current.attributes.inventory);
+      }, 0);
+      return { totalInventory, data, meta }
+
     } catch (error) {
-      ctx.body = error;
+      throw (error)
     }
   },
   async findBySlug(ctx) {
@@ -28,4 +30,5 @@ module.exports = createCoreController("api::product.product", ({ strapi }) => ({
     const sanitizedEntity = await this.sanitizeOutput(entity);
     return this.transformResponse(sanitizedEntity);
   },
+
 }));
