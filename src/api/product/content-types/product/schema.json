@@ -24,11 +24,11 @@
     "brand": {
       "type": "string"
     },
-    "suppliers": {
+    "supplier": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToOne",
       "target": "api::supplier.supplier",
-      "mappedBy": "products"
+      "mappedBy": "supplier"
     }
   }
 }

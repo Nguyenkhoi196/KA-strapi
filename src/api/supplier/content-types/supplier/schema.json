@@ -25,15 +25,15 @@
       "default": true,
       "private": true
     },
-    "products": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::product.product",
-      "inversedBy": "suppliers"
-    },
     "phoneNumber": {
       "type": "string",
       "required": true
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "product"
     }
   }
 }
