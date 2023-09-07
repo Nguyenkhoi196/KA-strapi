@@ -4,31 +4,27 @@
 /**
  * product controller
  */
+const { sanitize, validate } = require("@strapi/utils");
 
 const { createCoreController } = require("@strapi/strapi").factories;
 
 module.exports = createCoreController("api::product.product", ({ strapi }) => ({
-
   async find(ctx) {
     try {
-      ctx.query = { ...ctx.query }
-      const { data, meta } = await super.find(ctx)
-      const totalInventory = data.reduce((acc, current) => {
-        return acc + parseInt(current.attributes.inventory);
-      }, 0);
-      return { totalInventory, data, meta }
+      const sanitizedQueryParams = await this.sanitizeQuery(ctx);
 
+      const { results, pagination } = await strapi
+        .service("api::product.product")
+        .find(sanitizedQueryParams);
+
+      const sanitizedResults = await this.sanitizeOutput(results);
+
+      const totalInventory = results.reduce((acc, current) => {
+        return acc + parseInt(current.inventory);
+      }, 0);
+      return { totalInventory, data: results, meta: { pagination } };
     } catch (error) {
-      throw (error)
+      throw error;
     }
   },
-  async findBySlug(ctx) {
-    const { slug } = ctx.params;
-    const entity = await strapi.db
-      .query("api::product.product")
-      .findOne({ where: { slug } });
-    const sanitizedEntity = await this.sanitizeOutput(entity);
-    return this.transformResponse(sanitizedEntity);
-  },
-
 }));

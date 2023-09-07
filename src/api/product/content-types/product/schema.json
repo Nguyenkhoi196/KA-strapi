@@ -27,8 +27,7 @@
     "supplier": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::supplier.supplier",
-      "mappedBy": "supplier"
+      "target": "api::supplier.supplier"
     }
   }
 }

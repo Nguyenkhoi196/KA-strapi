@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_payment_carts",
+  "info": {
+    "displayName": "Cart",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    }
+  }
+}
