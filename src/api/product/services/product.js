@@ -10,11 +10,11 @@ const { createCoreService } = require("@strapi/strapi").factories;
 module.exports = createCoreService("api::product.product", ({ strapi }) => ({
   async find(...args) {
     const query = {
-      populate: {
-        supplier: {
-          fields: ["name"],
-        },
-      },
+      // populate: {
+      //   supplier: {
+      //     fields: ["name"],
+      //   },
+      // },
       ...args,
     };
     console.log(query);

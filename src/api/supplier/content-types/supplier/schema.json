@@ -16,23 +16,30 @@
       "type": "string",
       "required": true
     },
-    "address": {
-      "type": "text",
-      "required": true
-    },
     "state": {
       "type": "boolean",
       "default": true,
       "private": true
     },
-    "phoneNumber": {
-      "type": "string",
-      "required": true
-    },
     "products": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product.product"
+    },
+    "loyalty": {
+      "type": "enumeration",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "Info": {
+      "type": "dynamiczone",
+      "components": [
+        "information.contacts",
+        "information.location"
+      ]
     }
   }
 }
