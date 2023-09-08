@@ -4,7 +4,8 @@
   "info": {
     "singularName": "introduce-page",
     "pluralName": "introduce-pages",
-    "displayName": "IntroducePage"
+    "displayName": "IntroducePage",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,6 +13,9 @@
   "pluginOptions": {},
   "attributes": {
     "content": {
+      "type": "text"
+    },
+    "description": {
       "type": "text"
     }
   }

@@ -9,8 +9,16 @@ const { createCoreService } = require("@strapi/strapi").factories;
 
 module.exports = createCoreService("api::product.product", ({ strapi }) => ({
   async find(...args) {
-    const { results, pagination } = await super.find(...args);
-    // const sanitizedResults = await this.sanitizeOutput(results);
+    const query = {
+      populate: {
+        supplier: {
+          fields: ["name"],
+        },
+      },
+      ...args,
+    };
+    console.log(query);
+    const { results, pagination } = await super.find(query);
     return { results, pagination };
   },
 }));
