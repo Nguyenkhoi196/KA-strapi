@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_payment_headings",
+  "info": {
+    "displayName": "Heading"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    }
+  }
+}
