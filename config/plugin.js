@@ -1,6 +1,22 @@
 module.exports = ({ env }) => ({
   // ...
-
+  transformer: {
+    enabled: true,
+    config: {
+      responseTransforms: {
+        removeAttributesKey: true,
+        removeDataKey: true,
+      },
+      requestTransforms: {
+        wrapBodyWithDataKey: true,
+      },
+    },
+  },
+  "strapi-plugin-populate-deep": {
+    config: {
+      defaultDepth: 3,
+    },
+  },
   upload: {
     config: {
       provider: "cloudinary",
@@ -41,22 +57,6 @@ module.exports = ({ env }) => ({
       ],
     },
   },
-  transformer: {
-    enabled: true,
-    config: {
-      prefix: "/api/",
-      responseTransforms: {
-        removeAttributesKey: true,
-        removeDataKey: true,
-      },
-      requestTransforms: {
-        wrapBodyWithDataKey: true,
-      },
-      contentTypeFilter: {
-        mode: "allow",
-      },
-    },
-  },
   comments: {
     enabled: true,
     config: {
@@ -71,9 +71,7 @@ module.exports = ({ env }) => ({
       reportReasons: {
         MY_CUSTOM_REASON: "MY_CUSTOM_REASON",
       },
-      gql: {
-        // ...
-      },
+      gql: {},
     },
   },
   // ...

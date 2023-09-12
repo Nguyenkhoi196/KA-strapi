@@ -39,7 +39,8 @@
       "components": [
         "information.contacts",
         "information.location"
-      ]
+      ],
+      "required": true
     }
   }
 }

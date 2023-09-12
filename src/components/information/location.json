@@ -2,7 +2,8 @@
   "collectionName": "components_information_locations",
   "info": {
     "displayName": "Location",
-    "icon": "pinMap"
+    "icon": "pinMap",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,6 +12,10 @@
     },
     "city": {
       "type": "string"
+    },
+    "location_in_map": {
+      "type": "customField",
+      "customField": "plugin::google-maps.location-picker"
     }
   }
 }
