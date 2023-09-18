@@ -113,3 +113,7 @@ exports
 dist
 build
 .strapi-updater.json
+
+#File
+
+config/env/database.js
