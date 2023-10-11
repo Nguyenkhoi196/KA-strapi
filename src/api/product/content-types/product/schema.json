@@ -32,6 +32,13 @@
     "state": {
       "type": "boolean",
       "default": true
+    },
+    "img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

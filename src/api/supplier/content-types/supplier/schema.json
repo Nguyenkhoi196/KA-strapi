@@ -34,13 +34,15 @@
         "high"
       ]
     },
-    "Info": {
-      "type": "dynamiczone",
-      "components": [
-        "information.contacts",
-        "information.location"
-      ],
-      "required": true
+    "locations": {
+      "type": "component",
+      "repeatable": false,
+      "component": "information.location"
+    },
+    "contacts": {
+      "type": "component",
+      "repeatable": false,
+      "component": "information.contacts"
     }
   }
 }

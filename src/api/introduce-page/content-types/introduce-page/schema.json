@@ -17,12 +17,6 @@
     },
     "description": {
       "type": "text"
-    },
-    "Blog": {
-      "type": "dynamiczone",
-      "components": [
-        "payment.heading"
-      ]
     }
   }
 }
