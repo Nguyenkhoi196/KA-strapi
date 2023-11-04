@@ -17,6 +17,15 @@ module.exports = ({ env }) => ({
       defaultDepth: 3,
     },
   },
+
+  "location-field": {
+    enabled: true,
+    config: {
+      fields: ["photo", "rating"], // optional
+      googleMapsApiKey: env("GOOGLE_MAPS_API_KEY"),
+      autocompletionRequestOptions: {},
+    },
+  },
   upload: {
     config: {
       provider: "cloudinary",
@@ -27,8 +36,10 @@ module.exports = ({ env }) => ({
       },
       actionOptions: {
         upload: {},
+        uploadStream: {},
         delete: {},
       },
+      sizeLimit: 250 * 1024 * 1024,
     },
   },
   sentry: {
@@ -41,8 +52,6 @@ module.exports = ({ env }) => ({
   "entity-relationship-chart": {
     enabled: true,
     config: {
-      // By default all contentTypes and components are included.
-      // To exlclude strapi's internal models, use:
       exclude: [
         "strapi::core-store",
         "webhook",
