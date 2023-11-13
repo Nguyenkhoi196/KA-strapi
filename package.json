@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "KhoiAnhStrapi",
   "scripts": {
-    "dev": "strapi develop",
+    "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"
@@ -22,11 +22,13 @@
     "@strapi/strapi": "4.11.4",
     "better-sqlite3": "8.0.1",
     "pg": "^8.11.2",
+    "sharp": "^0.32.6",
     "strapi-location-field-plugin": "^1.2.2",
     "strapi-plugin-comments": "^2.2.14",
     "strapi-plugin-entity-relationship-chart": "^4.1.0",
     "strapi-plugin-populate-deep": "^3.0.0",
-    "strapi-plugin-transformer": "^3.1.0"
+    "strapi-plugin-transformer": "^3.1.0",
+    "vips": "^1.0.0"
   },
   "author": {
     "name": "KhoiNguyen"

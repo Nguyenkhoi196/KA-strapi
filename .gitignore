@@ -116,5 +116,5 @@ build
 
 #File
 
-!config/env/database.js
+config/database.js
 config/database.js
