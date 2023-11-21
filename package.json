@@ -7,7 +7,8 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "production": "cross-env NODE_ENV=production npm run build"
   },
   "dependencies": {
     "@amicaldo/strapi-google-maps": "^1.1.3",
