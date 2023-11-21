@@ -36,7 +36,9 @@ module.exports = ({ env }) => ({
       },
       actionOptions: {
         upload: {},
-        uploadStream: {},
+        uploadStream: {
+          folder: env("CLOUDINARY_FOLDER", "KhoiAnh"),
+        },
         delete: {},
       },
       sizeLimit: 250 * 1024 * 1024,
