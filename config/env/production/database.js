@@ -11,7 +11,7 @@ module.exports = ({ env }) => ({
       ssl: {
         rejectUnauthorized: env.bool("DATABASE_SSL_SELF", false),
       },
-      acquireConnectionTimeout: 1000000,
+      acquireConnectionTimeout: 5000000,
       pool: {
         min: 0,
         max: 4,
