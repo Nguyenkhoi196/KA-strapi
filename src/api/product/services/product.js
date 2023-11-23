@@ -20,4 +20,11 @@ module.exports = createCoreService("api::product.product", ({ strapi }) => ({
     });
     return res;
   },
+  async getTotalProducts() {
+    const entries = await strapi.entityService.findMany(
+      "api::product.product",
+      { sort: { id: "asc" } }
+    );
+    return entries;
+  },
 }));

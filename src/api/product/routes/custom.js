@@ -8,5 +8,13 @@ module.exports = {
         auth: false,
       },
     },
+    {
+      method: "GET",
+      path: "/product/test",
+      handler: "product.getTotalProducts",
+      config: {
+        auth: false,
+      },
+    },
   ],
 };
