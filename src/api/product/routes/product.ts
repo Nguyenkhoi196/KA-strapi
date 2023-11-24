@@ -4,9 +4,10 @@
  * product router
  */
 
-const { createCoreRouter } = require("@strapi/strapi").factories;
+import { factories } from "@strapi/strapi";
+const { createCoreRouter } = factories;
 
-module.exports = createCoreRouter("api::product.product", {
+export default createCoreRouter("api::product.product", {
   config: {
     find: {
       auth: false,

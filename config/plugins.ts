@@ -1,4 +1,4 @@
-module.exports = ({ env }) => ({
+export default ({ env }) => ({
   // ...
   transformer: {
     enabled: true,
@@ -42,13 +42,6 @@ module.exports = ({ env }) => ({
         delete: {},
       },
       sizeLimit: 250 * 1024 * 1024,
-    },
-  },
-  sentry: {
-    enabled: true,
-    config: {
-      dsn: env("SENTRY_DSN"),
-      sendMetadata: true,
     },
   },
   "entity-relationship-chart": {

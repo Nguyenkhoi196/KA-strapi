@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   routes: [
     {
       method: "POST",
@@ -11,7 +11,7 @@ module.exports = {
     {
       method: "GET",
       path: "/product/test",
-      handler: "product.getTotalProducts",
+      handler: "product.test",
       config: {
         auth: false,
       },
