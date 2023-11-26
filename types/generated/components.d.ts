@@ -57,14 +57,18 @@ export interface SectionSection extends Schema.Component {
   info: {
     displayName: 'Section';
     icon: 'stack';
+    description: '';
   };
-  attributes: {};
+  attributes: {
+    image: Attribute.Component<'text.image-section'>;
+    text: Attribute.Component<'text.text-section'>;
+  };
 }
 
 export interface TextImageSection extends Schema.Component {
   collectionName: 'components_text_image_sections';
   info: {
-    displayName: 'Image-section';
+    displayName: 'image-section';
     icon: 'picture';
     description: '';
   };
@@ -76,7 +80,7 @@ export interface TextImageSection extends Schema.Component {
 export interface TextTextSection extends Schema.Component {
   collectionName: 'components_text_text_sections';
   info: {
-    displayName: 'Text-section';
+    displayName: 'text-section';
     icon: 'bulletList';
     description: '';
   };
@@ -84,6 +88,7 @@ export interface TextTextSection extends Schema.Component {
     heading: Attribute.String;
     description: Attribute.Text;
     link: Attribute.Text;
+    button: Attribute.Component<'button.button'>;
   };
 }
 

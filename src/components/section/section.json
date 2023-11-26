@@ -2,8 +2,20 @@
   "collectionName": "components_section_sections",
   "info": {
     "displayName": "Section",
-    "icon": "stack"
+    "icon": "stack",
+    "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "text.image-section"
+    },
+    "text": {
+      "type": "component",
+      "repeatable": false,
+      "component": "text.text-section"
+    }
+  }
 }

@@ -13,12 +13,9 @@
   "pluginOptions": {},
   "attributes": {
     "section": {
-      "type": "dynamiczone",
-      "components": [
-        "button.button",
-        "text.image-section",
-        "text.text-section"
-      ]
+      "type": "component",
+      "repeatable": false,
+      "component": "section.section"
     }
   }
 }
