@@ -373,8 +373,9 @@ export interface ApiIntroducePageIntroducePage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    content: Attribute.Text;
-    description: Attribute.Text;
+    section: Attribute.DynamicZone<
+      ['button.button', 'text.image-section', 'text.text-section']
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

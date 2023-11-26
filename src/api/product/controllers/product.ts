@@ -4,6 +4,7 @@ import _ from "lodash";
 /**
  * product controller
  */
+// import { sanitizeEntity, sanitizeQuery } from '@strapi/utils';
 
 import { factories } from "@strapi/strapi";
 
@@ -12,13 +13,25 @@ export default factories.createCoreController(
   ({ strapi }) => ({
     async find(ctx: any) {
       try {
+        let totalInventory: number;
+
         const { data, meta } = await super.find(ctx);
-        const totalInventory = data.reduce(
-          (acc: any, current: { attributes: { inventory: any } }) => {
-            return acc + current.attributes.inventory;
-          },
-          0
+        const entries = await strapi.entityService.findMany(
+          "api::product.product",
+          {}
         );
+        if (_.isEmpty(ctx.request.query)) {
+          totalInventory = await strapi
+            .service("api::product.product")
+            .getTotalProductsInventory();
+        } else {
+          totalInventory = data.reduce(
+            (acc: any, current: { attributes: { inventory: any } }) => {
+              return acc + current.attributes.inventory;
+            },
+            0
+          );
+        }
         return { totalInventory, data, meta };
       } catch (error) {
         throw error;
@@ -52,30 +65,6 @@ export default factories.createCoreController(
           .catch;
 
         ctx.response.status = 200;
-        console.log({
-          a: strapi.plugins.upload.service,
-          b: strapi.plugins.upload.controller,
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    async test(ctx) {
-      try {
-        console.log("a", strapi.plugins.upload);
-        const res = await strapi
-          .service("api::product.product")
-          .getTotalProducts()
-          .catch((error: any) => {
-            throw error;
-          });
-        const totalInventory = res.reduce(
-          (acc: any, current: { inventory: any }) => {
-            return acc + current.inventory;
-          },
-          0
-        );
-        return { totalInventory, data: res };
       } catch (error) {
         console.log(error);
       }

@@ -12,11 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "content": {
-      "type": "text"
-    },
-    "description": {
-      "type": "text"
+    "section": {
+      "type": "dynamiczone",
+      "components": [
+        "button.button",
+        "text.image-section",
+        "text.text-section"
+      ]
     }
   }
 }

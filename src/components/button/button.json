@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_button_buttons",
+  "info": {
+    "displayName": "Button"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "link": {
+      "type": "richtext"
+    }
+  }
+}

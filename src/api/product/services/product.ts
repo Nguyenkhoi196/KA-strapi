@@ -23,12 +23,17 @@ export default factories.createCoreService(
       });
       return res;
     },
-    getTotalProducts: async () => {
+    getTotalProductsInventory: async () => {
       const entries = await strapi.entityService.findMany(
-        "api::product.product",
-        { sort: { id: "asc" } }
+        "api::product.product"
       );
-      return entries;
+      const totalInventory = entries.reduce(
+        (acc: any, current: { inventory: any }) => {
+          return acc + current.inventory;
+        },
+        0
+      );
+      return totalInventory;
     },
   })
 );

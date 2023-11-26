@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_text_image_sections",
+  "info": {
+    "displayName": "Image-section",
+    "icon": "picture",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
