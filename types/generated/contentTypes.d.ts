@@ -361,6 +361,44 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiHomePageHomePage extends Schema.SingleType {
+  collectionName: 'home_pages';
+  info: {
+    singularName: 'home-page';
+    pluralName: 'home-pages';
+    displayName: 'HomePage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    hero_banner: Attribute.Component<'page.hero-banner'>;
+    section_1: Attribute.Component<'page.hero-banner'>;
+    product_recommend: Attribute.Component<'page.card', true>;
+    products: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToMany',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiIntroducePageIntroducePage extends Schema.SingleType {
   collectionName: 'introduce_pages';
   info: {
@@ -373,7 +411,6 @@ export interface ApiIntroducePageIntroducePage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    section: Attribute.Component<'section.section'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -956,6 +993,7 @@ declare module '@strapi/strapi' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::home-page.home-page': ApiHomePageHomePage;
       'api::introduce-page.introduce-page': ApiIntroducePageIntroducePage;
       'api::product.product': ApiProductProduct;
       'api::supplier.supplier': ApiSupplierSupplier;

@@ -63,8 +63,11 @@ export default factories.createCoreController(
 
         await strapi.entityService.update("api::product.product", id, { data })
           .catch;
-
         ctx.response.status = 200;
+        return {
+          status: ctx.response.status,
+          message: "Cập nhật sản phẩm thành công",
+        };
       } catch (error) {
         console.log(error);
       }
