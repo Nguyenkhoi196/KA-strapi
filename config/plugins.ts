@@ -14,10 +14,23 @@ export default ({ env }) => ({
   },
   "strapi-plugin-populate-deep": {
     config: {
-      defaultDepth: 3,
+      defaultDepth: 5,
     },
   },
-
+  "copy-component": {
+    config: {
+      contentTypes: [
+        "api::mycollection.mycollection",
+        {
+          uid: "api::mycollection2.mycollection2",
+          source: [
+            "api::mycollection2.mycollection2",
+            "api::mycollection3.mycollection3",
+          ],
+        },
+      ],
+    },
+  },
   "location-field": {
     enabled: true,
     config: {
