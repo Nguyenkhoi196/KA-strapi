@@ -8,7 +8,8 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": true,
+    "privateAttributes": ["publishedAt"]
   },
   "pluginOptions": {},
   "attributes": {
@@ -16,7 +17,8 @@
       "type": "string"
     },
     "inventory": {
-      "type": "integer"
+      "type": "integer",
+      "required": false
     },
     "price": {
       "type": "integer"
@@ -37,9 +39,7 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     }
   }
 }

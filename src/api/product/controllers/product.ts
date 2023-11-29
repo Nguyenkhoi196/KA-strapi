@@ -4,14 +4,15 @@ import _ from "lodash";
 /**
  * product controller
  */
-// import { sanitizeEntity, sanitizeQuery } from '@strapi/utils';
+import { sanitize } from "@strapi/utils";
+import { Strapi } from "@strapi/strapi";
 
 import { factories } from "@strapi/strapi";
 
 export default factories.createCoreController(
   "api::product.product",
-  ({ strapi }) => ({
-    async find(ctx: any) {
+  ({ strapi }: { strapi: Strapi }) => ({
+    async find(ctx) {
       try {
         let totalInventory: number;
 
@@ -37,12 +38,33 @@ export default factories.createCoreController(
         throw error;
       }
     },
+    async findOne(ctx) {
+      const response = await super.findOne(ctx);
+      return response;
+    },
+    async create(ctx) {
+      try {
+        const response = await super.create(ctx);
+        return response;
+      } catch (error) {}
+    },
 
-    async updateProduct(ctx: {
-      params: { id: any };
-      request: { body: { data: any }; files: { files: any } };
-      response: { status: number };
-    }) {
+    async update(ctx) {
+      try {
+        const response = await super.create(ctx);
+        const { user } = ctx.state;
+        response.data.attributes.updateBy = {
+          id: user.id,
+          name: user.username,
+        };
+
+        return response;
+      } catch (error) {
+        return ctx.send(error);
+      }
+    },
+
+    async updateProduct(ctx) {
       try {
         const { id } = ctx.params;
         const { data } = ctx.request.body;
@@ -69,7 +91,7 @@ export default factories.createCoreController(
           message: "Cập nhật sản phẩm thành công",
         };
       } catch (error) {
-        console.log(error);
+        return ctx.send(error);
       }
     },
   })

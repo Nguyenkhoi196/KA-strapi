@@ -439,6 +439,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: true;
+    privateAttributes: ['publishedAt'];
   };
   attributes: {
     name: Attribute.String;

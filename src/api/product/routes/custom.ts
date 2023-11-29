@@ -5,7 +5,8 @@ export default {
       path: "/product/:id/update",
       handler: "product.updateProduct",
       config: {
-        policy: ["is-test"],
+        policies: ["is-test"],
+        middlewares: ["api::product.test"],
       },
     },
   ],
