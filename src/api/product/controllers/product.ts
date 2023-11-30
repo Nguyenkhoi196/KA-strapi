@@ -4,7 +4,7 @@ import _ from "lodash";
 /**
  * product controller
  */
-import { sanitize } from "@strapi/utils";
+import { errors } from "@strapi/utils";
 import { Strapi } from "@strapi/strapi";
 
 import { factories } from "@strapi/strapi";
@@ -33,6 +33,7 @@ export default factories.createCoreController(
             0
           );
         }
+
         return { totalInventory, data, meta };
       } catch (error) {
         throw error;
@@ -44,23 +45,30 @@ export default factories.createCoreController(
     },
     async create(ctx) {
       try {
-        const response = await super.create(ctx);
-        return response;
-      } catch (error) {}
+        const { user } = ctx.state;
+        if (!user) {
+          throw new errors.UnauthorizedError({
+            message: "You have roles but not user",
+          });
+        }
+
+        ctx.request.body.data.created_by_user = String(user.id);
+        return await super.create(ctx);
+      } catch (error) {
+        return error;
+      }
     },
 
     async update(ctx) {
       try {
-        const response = await super.create(ctx);
         const { user } = ctx.state;
-        response.data.attributes.updateBy = {
-          id: user.id,
-          name: user.username,
-        };
-
+        if (user) {
+          ctx.request.body.data.updated_by_user = String(user.id);
+        }
+        const response = await super.update(ctx);
         return response;
       } catch (error) {
-        return ctx.send(error);
+        throw error;
       }
     },
 
@@ -69,7 +77,6 @@ export default factories.createCoreController(
         const { id } = ctx.params;
         const { data } = ctx.request.body;
         const { files } = ctx.request.files;
-        console.log(ctx.params, ctx.request.body);
 
         if (!_.isEmpty(files) && files.length > 0) {
           if (id) {
@@ -83,8 +90,9 @@ export default factories.createCoreController(
           return ctx.babRequest("id is missing");
         }
 
-        await strapi.entityService.update("api::product.product", id, { data })
-          .catch;
+        return await strapi.entityService.update("api::product.product", id, {
+          data,
+        });
         ctx.response.status = 200;
         return {
           status: ctx.response.status,

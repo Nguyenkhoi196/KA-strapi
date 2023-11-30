@@ -10,7 +10,7 @@ const { createCoreRouter } = factories;
 export default createCoreRouter("api::product.product", {
   config: {
     find: {
-      auth: false,
+      middlewares: ["api::product.response-public"],
     },
     findOne: {
       auth: false,

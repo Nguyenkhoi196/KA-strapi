@@ -8,7 +8,8 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "production": "cross-env NODE_ENV=production npm run build"
+    "build:win": "cross-env NODE_ENV=production npm run build",
+    "start:win": "cross-env NODE_ENV=production npm start"
   },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^2.0.4",

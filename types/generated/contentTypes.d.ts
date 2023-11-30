@@ -439,10 +439,9 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: true;
-    privateAttributes: ['publishedAt'];
   };
   attributes: {
-    name: Attribute.String;
+    name: Attribute.String & Attribute.Unique;
     inventory: Attribute.Integer;
     price: Attribute.Integer;
     brand: Attribute.String;
@@ -453,6 +452,8 @@ export interface ApiProductProduct extends Schema.CollectionType {
     >;
     state: Attribute.Boolean & Attribute.DefaultTo<true>;
     img: Attribute.Media;
+    created_by_user: Attribute.String & Attribute.Private;
+    updated_by_user: Attribute.String & Attribute.Private;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
