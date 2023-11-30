@@ -8,10 +8,9 @@ export default (policyContext, config, { strapi }) => {
 
   if (user) {
     return true;
-  } else {
-    throw new PolicyError("Bạn không có quyền thực hiện !", {
-      policy: "test",
-      myCustomKey: "myCustomValue",
-    });
   }
+  return new PolicyError("Bạn không có quyền thực hiện !", {
+    policy: "test",
+    myCustomKey: "myCustomValue",
+  });
 };
