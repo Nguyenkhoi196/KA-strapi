@@ -17,6 +17,31 @@ export default ({ env }) => ({
       defaultDepth: 5,
     },
   },
+  io: {
+    enabled: true,
+    config: {
+      // This will listen for all supported events on the article content type
+      contentTypes: ["api::product.product"],
+      // socket: {
+      //   serverOptions: {
+      //     cors: {
+      //       origin: "http://localhost:3000",
+      //       methods: ["GET", "POST"],
+      //     },
+      //   },
+      // },
+      events: [
+        {
+          name: "test-io",
+          handler({ strapi, io }, socket) {
+            // will log whenever a socket connects
+            strapi.log.info(`[io] new connection with id ${socket.id}`);
+            return 'test-io';
+          },
+        },
+      ],
+    },
+  },
   "copy-component": {
     config: {
       contentTypes: [

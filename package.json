@@ -9,7 +9,8 @@
     "build": "strapi build",
     "strapi": "strapi",
     "build:win": "cross-env NODE_ENV=production npm run build",
-    "start:win": "cross-env NODE_ENV=production npm start"
+    "start:win": "cross-env NODE_ENV=production npm start",
+    "generate": "strapi ts:generate-types --debug"
   },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^2.0.4",
@@ -22,14 +23,17 @@
     "@strapi/plugin-i18n": "4.11.4",
     "@strapi/plugin-users-permissions": "4.11.4",
     "@strapi/provider-upload-cloudinary": "^4.14.3",
-    "@strapi/strapi": "4.11.4",
+    "@strapi/strapi": "4.14.6",
     "better-sqlite3": "8.0.1",
     "lodash": "^4.17.21",
+    "nodemailer": "^6.9.7",
     "pg": "^8.11.2",
     "sharp": "^0.32.6",
+    "socket.io": "^4.7.2",
     "strapi-location-field-plugin": "^1.2.2",
     "strapi-plugin-comments": "^2.2.14",
     "strapi-plugin-entity-relationship-chart": "^4.1.0",
+    "strapi-plugin-io": "^2.0.4",
     "strapi-plugin-populate-deep": "^3.0.1",
     "strapi-plugin-transformer": "^3.1.0",
     "vips": "^1.0.0"

@@ -1,6 +1,7 @@
 // @ts-nocheck
 "use strict";
 import _ from "lodash";
+import socket from "socket.io";
 /**
  * product controller
  */
@@ -15,12 +16,14 @@ export default factories.createCoreController(
     async find(ctx) {
       try {
         let totalInventory: number;
-
+        ctx.query = {
+          populate: {
+            img: {
+              fields: ["url"],
+            },
+          },
+        };
         const { data, meta } = await super.find(ctx);
-        const entries = await strapi.entityService.findMany(
-          "api::product.product",
-          {}
-        );
         if (_.isEmpty(ctx.request.query)) {
           totalInventory = await strapi
             .service("api::product.product")
@@ -33,14 +36,16 @@ export default factories.createCoreController(
             0
           );
         }
-
         return { totalInventory, data, meta };
       } catch (error) {
-        throw error;
+        ctx.throw(500, "Internal Server Error");
       }
     },
     async findOne(ctx) {
       const response = await super.findOne(ctx);
+      socket.on('connection', (socket) => {
+        console.log('aaa');
+      })
       return response;
     },
     async create(ctx) {
@@ -52,10 +57,10 @@ export default factories.createCoreController(
           });
         }
 
-        ctx.request.body.data.created_by_user = String(user.id);
+        ctx.request.body.data.created_by_user = _.toString(user.id);
         return await super.create(ctx);
       } catch (error) {
-        return error;
+        throw error;
       }
     },
 
@@ -63,9 +68,10 @@ export default factories.createCoreController(
       try {
         const { user } = ctx.state;
         if (user) {
-          ctx.request.body.data.updated_by_user = String(user.id);
+          ctx.request.body.data.updated_by_user = _.toString(user.id);
         }
         const response = await super.update(ctx);
+
         return response;
       } catch (error) {
         throw error;
@@ -75,7 +81,7 @@ export default factories.createCoreController(
     async updateProduct(ctx) {
       try {
         const { id } = ctx.params;
-        const { data } = ctx.request.body;
+        // const { data } = ctx.request.body;
         const { files } = ctx.request.files;
 
         if (!_.isEmpty(files) && files.length > 0) {
@@ -89,18 +95,18 @@ export default factories.createCoreController(
           }
           return ctx.babRequest("id is missing");
         }
-
-        return await strapi.entityService.update("api::product.product", id, {
-          data,
-        });
+        await super.update(ctx);
         ctx.response.status = 200;
         return {
           status: ctx.response.status,
           message: "Cập nhật sản phẩm thành công",
         };
       } catch (error) {
-        return ctx.send(error);
+        throw error;
       }
     },
+    // socket.on("findOne", async(data)=>{
+    //   const params = data
+    // })
   })
 );

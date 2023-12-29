@@ -6,5 +6,5 @@ export default (policyContext, config, { strapi }) => {
   if (user) {
     return true;
   }
-  return new PolicyError("Bạn chưa xác thực tài khoản");
+  return new PolicyError("Tài khoản chưa xác thực");
 };
