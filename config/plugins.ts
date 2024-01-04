@@ -17,29 +17,21 @@ export default ({ env }) => ({
       defaultDepth: 5,
     },
   },
-  io: {
-    enabled: true,
+  'users-permissions': {
     config: {
-      // This will listen for all supported events on the article content type
-      contentTypes: ["api::product.product"],
-      // socket: {
-      //   serverOptions: {
-      //     cors: {
-      //       origin: "http://localhost:3000",
-      //       methods: ["GET", "POST"],
-      //     },
-      //   },
-      // },
-      events: [
-        {
-          name: "test-io",
-          handler({ strapi, io }, socket) {
-            // will log whenever a socket connects
-            strapi.log.info(`[io] new connection with id ${socket.id}`);
-            return 'test-io';
-          },
-        },
-      ],
+      jwt: {
+        expiresIn: '7d',
+      },
+    },
+    "auth": {
+      "providers": {
+        "google": {
+          "provider": "google",
+          "secret": env('GOOGLE_CLIENT_SECRET'), // Sử dụng biến môi trường để bảo mật thông tin
+          "clientId": env('GOOGLE_CLIENT_ID'),   // Sử dụng biến môi trường để bảo mật thông tin
+          "redirect_uri": "/connect/google/callback"  // URI chuyển hướng đã đặt khi tạo OAuth Client ID
+        }
+      }
     },
   },
   "copy-component": {
@@ -62,6 +54,28 @@ export default ({ env }) => ({
       fields: ["photo", "rating"], // optional
       googleMapsApiKey: env("GOOGLE_MAPS_API_KEY"),
       autocompletionRequestOptions: {},
+    },
+  },
+  email: {
+    //   config: {
+    //     provider: 'nodemailer',
+    //     providerOptions: {
+    //       host: 'localhost',
+    //       port: 1025,
+    //       ignoreTLS: true,
+    //     },
+    //   },
+    config: {
+      provider: 'sendgrid',
+      providerOptions: {
+        apiKey: env('SENDGRID_API_KEY'),
+      },
+      settings: {
+        defaultFrom: 'myemail@protonmail.com',
+        defaultReplyTo: 'myemail@protonmail.com',
+        testAddress: 'nguyenkhoi196@gmail.com',
+      },
+
     },
   },
   upload: {
