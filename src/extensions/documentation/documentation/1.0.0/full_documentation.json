@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-01-04T04:04:51.012Z"
+    "x-generation-date": "2024-01-07T03:08:50.904Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1122,7 +1122,6 @@
                                                   "action": {
                                                     "type": "string"
                                                   },
-                                                  "actionParameters": {},
                                                   "subject": {
                                                     "type": "string"
                                                   },
@@ -1518,7 +1517,6 @@
                                                   "action": {
                                                     "type": "string"
                                                   },
-                                                  "actionParameters": {},
                                                   "subject": {
                                                     "type": "string"
                                                   },
@@ -2236,7 +2234,6 @@
                                                                                                                   "action": {
                                                                                                                     "type": "string"
                                                                                                                   },
-                                                                                                                  "actionParameters": {},
                                                                                                                   "subject": {
                                                                                                                     "type": "string"
                                                                                                                   },
@@ -3216,7 +3213,6 @@
                                                                             "action": {
                                                                               "type": "string"
                                                                             },
-                                                                            "actionParameters": {},
                                                                             "subject": {
                                                                               "type": "string"
                                                                             },

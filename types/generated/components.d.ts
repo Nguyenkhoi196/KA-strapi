@@ -68,7 +68,7 @@ export interface PageHeroBanner extends Schema.Component {
   };
 }
 
-declare module '@strapi/types' {
+declare module '@strapi/strapi' {
   export module Shared {
     export interface Components {
       'information.contacts': InformationContacts;

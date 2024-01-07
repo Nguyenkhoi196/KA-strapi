@@ -1,7 +1,6 @@
 // @ts-nocheck
 "use strict";
 import _ from "lodash";
-import socket from "socket.io";
 /**
  * product controller
  */
@@ -43,9 +42,7 @@ export default factories.createCoreController(
     },
     async findOne(ctx) {
       const response = await super.findOne(ctx);
-      socket.on('connection', (socket) => {
-        console.log('aaa');
-      })
+
       return response;
     },
     async create(ctx) {
