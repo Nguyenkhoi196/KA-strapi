@@ -18,6 +18,7 @@
     "@bn-digital/strapi-plugin-field-uuid": "^1.2.12",
     "@ckeditor/ckeditor5-markdown-gfm": "^40.1.0",
     "@palmabit/strapi-app-version": "^1.1.0",
+    "@strapi/data-transfer": "^4.16.2",
     "@strapi/plugin-color-picker": "^4.13.3",
     "@strapi/plugin-documentation": "^4.13.3",
     "@strapi/plugin-i18n": "4.11.4",
