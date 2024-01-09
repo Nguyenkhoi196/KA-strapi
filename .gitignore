@@ -113,7 +113,7 @@ exports
 dist
 build
 .strapi-updater.json
-
+examples/**/types/generated
 #File
 
 
