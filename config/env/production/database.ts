@@ -11,7 +11,7 @@ export default ({ env }) => ({
       ssl: {
         rejectUnauthorized: env.bool("DATABASE_SSL_SELF", false),
       },
-      acquireConnectionTimeout: 5000000,
+      acquireConnectionTimeout: 1000000,
       pool: {
         min: 0,
         max: 4,
@@ -20,7 +20,7 @@ export default ({ env }) => ({
         destroyTimeoutMillis: 300000,
         idleTimeoutMillis: 30000,
         reapIntervalMillis: 1000,
-        createRetryIntervalMillis: 2000,
+        createRetryIntervalMillis: 2000
       },
     },
     debug: false,
