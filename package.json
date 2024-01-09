@@ -8,8 +8,6 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "build:win": "cross-env NODE_ENV=production npm run build",
-    "start:win": "cross-env NODE_ENV=production npm start",
     "generate": "strapi ts:generate-types --debug"
   },
   "dependencies": {
@@ -26,7 +24,7 @@
     "@strapi/provider-email-nodemailer": "^4.16.2",
     "@strapi/provider-email-sendgrid": "^4.16.2",
     "@strapi/provider-upload-cloudinary": "^4.14.3",
-    "@strapi/strapi": "4.11.6",
+    "@strapi/strapi": "4.11.4",
     "better-sqlite3": "8.0.1",
     "lodash": "^4.17.21",
     "nodemailer": "^6.9.7",
