@@ -8,6 +8,8 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
+    "build:prod": "cross-env NODE_ENV=production npm run build --clean",
+    "start:prod": "cross-env NODE_ENV=production npm run start --clean",
     "generate": "strapi ts:generate-types --debug"
   },
   "dependencies": {
