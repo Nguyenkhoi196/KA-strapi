@@ -65,18 +65,16 @@ export default ({ env }) => ({
     //       ignoreTLS: true,
     //     },
     //   },
-    // config: {
-    //   provider: 'sendgrid',
-    //   providerOptions: {
-    //     apiKey: env('SENDGRID_API_KEY'),
-    //   },
-    //   settings: {
-    //     defaultFrom: 'myemail@protonmail.com',
-    //     defaultReplyTo: 'myemail@protonmail.com',
-    //     testAddress: 'nguyenkhoi196@gmail.com',
-    //   },
-
-    // },
+    config: {
+      provider: 'sendgrid',
+      providerOptions: {
+        apiKey: env('SENDGRID_API_KEY'),
+      },
+      settings: {
+        defaultFrom: env('EMAIL_DEFAULT_FROM'),
+        defaultReplyTo: env('EMAIL_NOREPLY'),
+      },
+    },
   },
   upload: {
     config: {

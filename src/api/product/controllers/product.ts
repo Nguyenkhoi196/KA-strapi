@@ -78,7 +78,6 @@ export default factories.createCoreController(
     async updateProduct(ctx) {
       try {
         const { id } = ctx.params;
-        // const { data } = ctx.request.body;
         const { files } = ctx.request.files;
 
         if (!_.isEmpty(files) && files.length > 0) {
@@ -102,8 +101,5 @@ export default factories.createCoreController(
         throw error;
       }
     },
-    // socket.on("findOne", async(data)=>{
-    //   const params = data
-    // })
   })
 );
