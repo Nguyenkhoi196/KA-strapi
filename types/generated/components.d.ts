@@ -54,6 +54,17 @@ export interface PageCard extends Schema.Component {
   };
 }
 
+export interface PageCarousel extends Schema.Component {
+  collectionName: 'components_page_carousels';
+  info: {
+    displayName: 'carousel';
+    icon: 'landscape';
+  };
+  attributes: {
+    image: Attribute.Media;
+  };
+}
+
 export interface PageHeroBanner extends Schema.Component {
   collectionName: 'components_page_hero_banners';
   info: {
@@ -75,6 +86,7 @@ declare module '@strapi/strapi' {
       'information.location': InformationLocation;
       'page.button': PageButton;
       'page.card': PageCard;
+      'page.carousel': PageCarousel;
       'page.hero-banner': PageHeroBanner;
     }
   }

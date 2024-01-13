@@ -1,4 +1,4 @@
-module.exports = (plugin) => {
+export default (plugin) => {
   const updateUser = async (ctx) => {
     const { user } = ctx.state;
 

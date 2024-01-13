@@ -381,6 +381,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       'oneToMany',
       'api::product.product'
     >;
+    carousel: Attribute.Component<'page.carousel'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
