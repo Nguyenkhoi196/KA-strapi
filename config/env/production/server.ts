@@ -12,4 +12,8 @@ export default ({ env }) => ({
   cron: {
     enabled: env.bool('CRON_ENABLED', false),
   },
+  proxy: env.bool('IS_PROXIED', true),
+  cron: {
+    enabled: env.bool('CRON_ENABLED', false),
+  },
 });
