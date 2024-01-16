@@ -12,11 +12,11 @@ export default ({ env }) => ({
   //   url: '/',
   //   serverAdminPanel: false,
   // }
-  admin: {
-    // ...
-    path: '/admin',
-    build: {
-      backend: env('STRAPI_URL', 'https://khoianh-strapi.onrender.com'),
-    },
-  },
+  // admin: {
+  //   // ...
+  //   path: '/admin',
+  //   build: {
+  //     backend: env('STRAPI_URL', 'https://khoianh-strapi.onrender.com'),
+  //   },
+  // },
 });
