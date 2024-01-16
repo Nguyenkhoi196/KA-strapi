@@ -8,9 +8,8 @@ export default ({ env }) => ({
   webhooks: {
     populateRelations: env.bool("WEBHOOKS_POPULATE_RELATIONS", false),
   },
-  admin: {
-    auth: {
-      secret: env("ADMIN_JWT_SECRET",),
-    },
+  proxy: env.bool('IS_PROXIED', true),
+  cron: {
+    enabled: env.bool('CRON_ENABLED', false),
   },
 });
