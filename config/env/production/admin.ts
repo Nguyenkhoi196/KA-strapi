@@ -1,5 +1,5 @@
 export default ({ env }) => ({
-  url: "/",
+  url: env("STRAPI_URL"),
   auth: {
     secret: env("ADMIN_JWT_SECRET"),
   },

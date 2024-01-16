@@ -13,4 +13,8 @@ export default ({ env }) => ({
       secret: env("ADMIN_JWT_SECRET",),
     },
   },
+  proxy: env.bool('IS_PROXIED', true),
+  cron: {
+    enabled: env.bool('CRON_ENABLED', false),
+  },
 });
