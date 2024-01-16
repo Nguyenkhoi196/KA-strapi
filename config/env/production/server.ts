@@ -1,5 +1,5 @@
 export default ({ env }) => ({
-  // url: env('STRAPI_URL', "https://khoianh-strapi.onrender.com"),
+  url: env('STRAPI_URL', "https://khoianh-strapi.onrender.com"),
   host: env("HOST", "0.0.0.0"),
   port: env.int("PORT", 1337),
   app: {
@@ -9,10 +9,8 @@ export default ({ env }) => ({
     populateRelations: env.bool("WEBHOOKS_POPULATE_RELATIONS", false),
   },
   admin: {
-    // ...
-    path: '/admin',
-    build: {
-      backend: env('STRAPI_URL', 'https://khoianh-strapi.onrender.com'),
+    auth: {
+      secret: env("ADMIN_JWT_SECRET",),
     },
   },
 });
