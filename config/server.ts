@@ -8,4 +8,15 @@ export default ({ env }) => ({
   webhooks: {
     populateRelations: env.bool("WEBHOOKS_POPULATE_RELATIONS", false),
   },
+  // admin: {
+  //   url: '/',
+  //   serverAdminPanel: false,
+  // }
+  admin: {
+    // ...
+    path: '/admin',
+    build: {
+      backend: env('STRAPI_URL', 'https://khoianh-strapi.onrender.com'),
+    },
+  },
 });
