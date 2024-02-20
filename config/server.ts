@@ -1,5 +1,5 @@
 export default ({ env }) => ({
-  url: env("PUBLIC_URL", "http://localhost:1337"),
+  url: env("PUBLIC_URL", "https://khoianh-strapi.onrender.com"),
   host: "127.0.0.1",
   port: env.int("PORT_DEV", 1337),
   app: {
