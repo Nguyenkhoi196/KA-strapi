@@ -12,4 +12,11 @@ export default ({ env }) => ({
   cron: {
     enabled: env.bool('CRON_ENABLED', false),
   },
+  admin: {
+    // ...
+    path: '/admin',
+    build: {
+      backend: env('STRAPI_URL', 'https://khoianh-strapi.onrender.com'),
+    },
+  },
 });
