@@ -12,7 +12,10 @@ export default factories.createCoreService(
   ({ strapi }) => ({
     updateImage: async (args: { id: string; files: Object }) => {
       const { id, files } = args;
+
       const res = await strapi;
+      console.log(res);
+
       strapi.plugins.upload.services.upload.upload({
         data: {
           ref: "api::product.product",

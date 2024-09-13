@@ -75,10 +75,11 @@ export default factories.createCoreController(
       }
     },
 
-    async updateProduct(ctx) {
+    async updateProduct(ctx: any) {
       try {
         const { id } = ctx.params;
         const { files } = ctx.request.files;
+        console.log('file', ctx);
 
         if (!_.isEmpty(files) && files.length > 0) {
           if (id) {
